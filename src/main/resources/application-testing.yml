@@ -1,0 +1,25 @@
+
+logging:
+  config: 'classpath:log4j2.xml'
+
+
+kafka:
+  bootstrap-servers: testing-kafka-headless.smartnomadworkspace.svc.cluster.local:9092
+  consumer:
+    topic: orange_topic
+    new-status-topic: orange_topic_new_status
+    group:
+      id: orange_group
+  producer:
+    ingestor:
+      topic: ingestor_topic
+
+eventbus:
+  redis:
+    host: testing-redis-master.smartnomadworkspace.svc.cluster.local
+    port: 6379
+
+proxy:
+  enabled: true
+  host: cs.pr-proxy.service.sd.diod.tech
+  port: 3128

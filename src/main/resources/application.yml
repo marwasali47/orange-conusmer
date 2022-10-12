@@ -1,0 +1,34 @@
+infra:
+  host: localhost
+
+eventbus:
+  redis:
+    host: ${infra.host}
+    port: 6379
+
+logging:
+  config: 'classpath:log4j2-local.xml'
+
+kafka:
+  bootstrap-servers: ${infra.host}:9092
+  consumer:
+    group:
+      id: orange_group
+    topic: orange_topic
+    new-status-topic: orange_topic_new_status
+  producer:
+    push_notification:
+      topic: push_notification_topic
+    ingestor:
+      topic: ingestor_topic
+
+mail:
+  imap:
+    host: 'imap.orange.fr'
+    port: 993
+    protocol : 'imap'
+
+proxy:
+  enabled: false
+  host: cs.pr-proxy.service.sd.diod.tech
+  port: 3128
